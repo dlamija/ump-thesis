@@ -1,9 +1,9 @@
-%---------------------------------------------------------%
-%			UMP Thesis : Latex Template					  %
-%			By : Muhammed Ramiza bin Ramli				  %
-%---------------------------------------------------------%
-%						Class File						  %
-%---------------------------------------------------------%
+%--------------------------------------------------%
+%			UMP Thesis : Latex Template			   %
+%			By : Muhammed Ramiza bin Ramli		   %
+%--------------------------------------------------%
+%					Class File					   %
+%--------------------------------------------------%
 
 % Class File for Universiti Malaysia Pahang 
 % Thesis Writing
@@ -24,7 +24,7 @@
 %  ii. Thesis Declaration Letter
 % iii. Student Declaration Form
 %  iv. Supervisor Declaration Form
-%---------------------------------------------------------%
+%--------------------------------------------------%
 %	Muhammed Ramiza bin Ramli
 %	v0.5 2016/8/13
 %	v0.6 2017/4/12
@@ -34,16 +34,18 @@
 %	v0.7 2017/8/01
 %		- restructure class file for better reading
 %
-%---------------------------------------------------------%
+%--------------------------------------------------%
 %   [TODO] Fixed line spacing \singlespacing \onehalfspacing
 %                \doublespacing 
 %		   add a few pt to follow MS Word
-%---------------------------------------------------------%
+%	[TODO]	Acronym collection 
+%	[TODO]	UMP Biblio format
+%--------------------------------------------------%
 
 
-%---------------------------------------------------------%
-%   Class file declaration [Start]
-%---------------------------------------------------------%
+%--------------------------------------------------%
+%   	Class file declaration [Start]
+%--------------------------------------------------%
 \NeedsTeXFormat{LaTeX2e}
     \newcommand\@classname    {umpthesis}
     \newcommand\@umpfullname  {Universiti Malaysia Pahang}
@@ -61,7 +63,8 @@
 %	Class file Structure and Package Loading [Start]
 %---------------------------------------------------------%
 % [2.1] Paper Specification - a4Paper
-% [2.2.1] Typeface or Font - 12pt\LoadClass[a4paper,oneside,12pt,onecolumn]{memoir}
+% [2.2.1] Typeface or Font - 12pt
+\LoadClass[a4paper,oneside,12pt,onecolumn]{memoir}
 % [2.2.1] Typeface or Font - Times New Roman 
 % There is no actual Times New Roman font in native LaTeX, 
 % the closest you'll get is by adding
