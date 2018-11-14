@@ -2,7 +2,9 @@ UMP Thesis Template using LaTeX
 ===============================
 
 The LaTex class for Universiti Malaysia Pahang
+
 -- Noted that it's not fully completed yet!
+
 -- Used at your own risk!
 
 Description
