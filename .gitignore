@@ -1,0 +1,35 @@
+# Hasil binaan LaTeX / BibTeX
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.synctex
+*.synctex.gz
+*.run.xml
+*.bcf
+*.fls
+*.fdb_latexmk
+build/
+.texpadtmp/
+
+# Fail sistem macOS
+.DS_Store
+
+# Dokumen proposal peribadi (tidak dimuat naik ke GitHub)
+UMP Proposal 2018.tex
+UMP Proposal 2018.pdf
+tex/abstrak.tex
+tex/abstract.tex
+tex/acknowledgement.tex
+tex/dedication.tex
+tex/introduction.tex
+tex/literature.tex
+tex/methodologies.tex
+tex/abbrevia.tex
+bib/mybiblio.bib
+figure/
+laporan/

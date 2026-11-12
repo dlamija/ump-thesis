@@ -1,0 +1,73 @@
+%---------------------------------------------------------%
+%   CHAPTER 5: CHECKLIST AND KNOWN ISSUES                  %
+%---------------------------------------------------------%
+\chapter{Submission Checklist and Known Issues}
+\label{chap:checklist}
+
+\section{Pre-Submission Checklist}
+
+\textbf{Format}
+
+\begin{itemize}
+    \item A4 white paper, printed one side, correct margins (left 35 mm; top, right, bottom 25 mm).
+    \item Times New Roman 12 pt everywhere; table entries may be 11 pt or smaller but legible.
+    \item 1.5 line spacing for body text; single spacing for abstract, acknowledgements, long quotes, and references.
+    \item First line of every paragraph indented 12.7 mm.
+    \item Page numbers centred at the bottom: roman for preliminaries, arabic for text.
+    \item Table captions above tables; figure captions below figures; both numbered by chapter.
+    \item Tables have only three horizontal lines and no vertical lines.
+    \item Equations centred and numbered by chapter.
+    \item Headings follow the levels in Table \ref{tab:headings}.
+    \item References follow APA 6th and are listed once at the end.
+\end{itemize}
+
+\textbf{Content}
+
+\begin{itemize}
+    \item Chapter 1: Introduction, Problem Statement, Objective, Scope, Report Organization.
+    \item Chapter 2: Literature Review with at least three existing systems compared.
+    \item Chapter 3: Methodology covering framework, requirements, design, data, POC, testing plan, and Gantt chart.
+    \item References contain only works cited in the text.
+\end{itemize}
+
+\section{Known Differences Between \texttt{umpthesis.cls} and the 2019 Guide}
+
+Table \ref{tab:knownissues} lists the differences found when comparing the class with the UMP Thesis Guide 2019. These are documented here as known issues; the class was used unmodified in this document.
+
+\begin{table}[htbp]
+\caption{Known differences: \texttt{umpthesis.cls} vs UMP Thesis Guide 2019}
+\label{tab:knownissues}
+\begin{tabularx}{\textwidth}{@{} l X X @{}}
+\toprule
+Item & Guide 2019 & Class behaviour / workaround \\
+\midrule
+Cover font & Times New Roman 20 pt, gold, not bold & Class uses 18 pt and no gold colour. Keep for now; final cover is usually produced by the printer/binder. \\
+Title page spacing & Single spacing & Class uses 1.5 spacing. Redefine \texttt{\string\maketitle} locally or patch the class. \\
+Page number on first page of chapter & Printed on all text pages & Class hides it (\texttt{\string\aliaspagestyle\string{chapter\string}\string{empty\string}}). Remove that line in the class for a strict match. \\
+Chapter page number in TOC & Shown (e.g., CHAPTER 1 \dots 11) & Class blanks the chapter page number in the TOC. Re-enable \texttt{\string\cftchapterformatpnum} in the class. \\
+Chapter title spacing & 1.5 spacing between number--title and title--text & Class uses 4 lines and 1 line. Adjust \texttt{\string\midchapskip} and \texttt{\string\afterchapskip}. \\
+TOC/LOT/LOF spacing & 1.5 line spacing & Class uses 1.3 in TOC and LOF. Set \texttt{\string\linespread\string{1.5\string}} in those lists. \\
+Space between paragraphs & 1.5 line spacing & Class uses \texttt{\string\parskip\string{1em\string}}. Set \texttt{\string\parskip} to 1.5 lines if required. \\
+Supervisor's declaration wording & ``I/We* \dots this thesis/project*'' & Class uses a fixed ``I \dots this thesis'' sentence. Edit \texttt{\string\umpSvDeclaration} text. \\
+Purpose of submission & Fulfilment / partial fulfilment variants for different degrees & Class always writes ``Thesis submitted in fulfilment \dots''. Redefine for coursework or PSM reports. \\
+Copyright declaration text & ``Property of Universiti Malaysia Pahang'' & Class has typo ``University''. Fix the text in \texttt{\string\umpCopyright}. \\
+Margins & Set by the guide & Class does not set body margins; set \texttt{\string\geometry} in the main file (as done in Chapter \ref{chap:latex}). \\
+Bibliography style & APA 6th & Class has no style; \texttt{plainnat} is a close author--year substitute. Use APA style for strict compliance. \\
+Heading Level 5 & Not numbered, italic, Title Case & Class paragraph style is numbered roman and bold. Redefine \texttt{\string\paragraph} style. \\
+Spine, List of Symbols/Abbreviations, List of Appendices, List of Publications & Required or optional in the guide & Class has no commands for these. Add manually or extend the class. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Recommended Class Patches}
+
+If strict compliance with the 2019 guide is required, patch \texttt{umpthesis.cls} in this priority order:
+
+\begin{enumerate}
+    \item Remove \texttt{\string\aliaspagestyle\string{chapter\string}\string{empty\string}} so the first page of every chapter shows its page number.
+    \item Restore chapter page numbers in the Table of Contents.
+    \item Set body margins inside the class with \texttt{\string\geometry}.
+    \item Change cover font to 20 pt and title page to single spacing.
+    \item Add commands for spine, list of symbols/abbreviations, list of appendices, and list of publications.
+    \item Replace \texttt{plainnat} with a strict APA 6th bibliography style.
+\end{enumerate}
