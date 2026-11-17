@@ -15,7 +15,7 @@
 % - https://drive.google.com/drive/u/2/folders/0B99VRxsmhqOuTnVJbEhMak92cjA
 % 3. 2016 (February) THESIS_GUIDEBOOK_2016.pdf
 % - No longer available online
-% 4. 2016 Verified Thesis Declaration form IPS.rar âˆ version 1
+% 4. 2016 Verified Thesis Declaration form IPS.rar version 1
 % - From 'UMP Postgraduate Association' FB Group
 % - https://www.facebook.com/groups/806896349436074/permalink/882148958577479/
 % - Note : Not Sure about this; Maybe not official
@@ -884,6 +884,58 @@
 
 
 %---------------------------------------------------------%
+%   List of Symbols [Start]
+%---------------------------------------------------------%
+\newlistof{symbols}{sym}{\listnameofsymbols}
+\newcommand{\l@symbol}[2]{\@dottedtocline{1}{0em}{1.5cm}{#1}{#2}}
+\newcommand{\listnameofsymbols}{LIST OF SYMBOLS}
+\newcommand{\addsymbol}[2]{\addcontentsline{sym}{symbol}{\protect\makebox[1.5cm][l]{#1}#2}}
+
+\newcommand{\listofsymbols}{%
+\label{pre:los}
+\linespread{1.3}\selectfont 
+\addcontentsline{toc}{chapter}{\MakeUppercase{\listnameofsymbols}}
+\begin{center}
+\bfseries \MakeUppercase{\listnameofsymbols}\vspace{-.5em}\vspace{0pt}
+    \vspace*{2\baselineskip}
+    \end{center}
+   \@mkboth{\MakeUppercase\listnameofsymbols}{\MakeUppercase\listnameofsymbols}%
+\noindent\textbf{Symbol}~\hfill\textbf{Description}~\hfill\textbf{Page}\par
+\@starttoc{sym}
+\clearpage
+}
+%---------------------------------------------------------%
+%   List of Symbols [End]
+%---------------------------------------------------------%
+
+
+%---------------------------------------------------------%
+%   List of Abbreviations [Start]
+%---------------------------------------------------------%
+\newlistof{abbreviations}{abbr}{\listnameofabbreviations}
+\newcommand{\l@abbreviation}[2]{\@dottedtocline{1}{0em}{1.5cm}{#1}{#2}}
+\newcommand{\listnameofabbreviations}{LIST OF ABBREVIATIONS}
+\newcommand{\addabbreviation}[2]{\addcontentsline{abbr}{abbreviation}{\protect\makebox[1.5cm][l]{#1}#2}}
+
+\newcommand{\listofabbreviations}{%
+\label{pre:loa}
+\linespread{1.3}\selectfont 
+\addcontentsline{toc}{chapter}{\MakeUppercase{\listnameofabbreviations}}
+\begin{center}
+\bfseries \MakeUppercase{\listnameofabbreviations}\vspace{-.5em}\vspace{0pt}
+    \vspace*{2\baselineskip}
+    \end{center}
+   \@mkboth{\MakeUppercase\listnameofabbreviations}{\MakeUppercase\listnameofabbreviations}%
+\noindent\textbf{Abbreviation}~\hfill\textbf{Description}~\hfill\textbf{Page}\par
+\@starttoc{abbr}
+\clearpage
+}
+%---------------------------------------------------------%
+%   List of Abbreviations [End]
+%---------------------------------------------------------%
+
+
+%---------------------------------------------------------%
 %	Chapter [Start]
 %---------------------------------------------------------%
 %	Chapter Heading
@@ -927,10 +979,8 @@
 \clubpenalty10000
 
 % Setting Section Title Indent
-\makeatletter
 \def\@seccntformat#1{\protect\makebox[0.5in][l]{\csname
 the#1\endcsname\quad}}
-\makeatother
 
 
 %---------------------------------------------------------%

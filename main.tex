@@ -1,0 +1,138 @@
+%---------------------------------------------------------%
+%   UMP Thesis : LaTeX Template (dummy content)            %
+%   Follows the structure of UMP Proposal 2018.tex         %
+%---------------------------------------------------------%
+\documentclass[english]{umpthesis}
+
+% [Thesis Guide 2019, Table 2.3] Margin Specifications
+\geometry{
+    top=25mm,
+    right=25mm,
+    left=35mm,
+    bottom=25mm,
+    includefoot,
+    %showframe   % uncomment to visually check margins
+}
+
+%---------------------------------------------------------%
+%   Specific Packages and General Settings                 %
+%---------------------------------------------------------%
+\usepackage{lipsum}     % dummy text
+\usepackage{natbib}     % author-year citations
+\usepackage{booktabs}   % professional three-line tables
+\usepackage{caption}    % \captionof for tables in markdown
+
+% Markdown package
+\usepackage[
+    smartEllipses,
+    texMathDollars,
+    texComments,
+    rawAttribute,
+    citations,
+    pipeTables
+]{markdown}
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\pagenumbering{roman}
+
+%---------------------------------------------------------%
+%   Author's Profile                                       %
+%---------------------------------------------------------%
+\author{Muhammed Ramiza bin Ramli}
+\authorDOB{01/01/1990}
+\authorStudID{ABC12345}
+\authorNRICPassport{000000-00-0000}
+
+%---------------------------------------------------------%
+%   School Profile                                         %
+%---------------------------------------------------------%
+\umpFaculty{Faculty of Computing}
+\umpSession{2026/2027}
+\umpDegree{Sarjana Muda}
+\umpField{Computer Science}
+
+%---------------------------------------------------------%
+%   Thesis Info                                            %
+%---------------------------------------------------------%
+\title{Your Research Title}
+\titleWrapOne{Your Research Title}
+\titleWrapTwo{}
+\titleWrapThree{}
+\svisorMain{Supervisor Name}
+\svisorMainPos{Senior Lecturer}
+% \svisorSecond{Co-Supervisor Name}
+% \svisorSecondPos{Senior Lecturer}
+\submitYear{2026}
+\submitMonth{November}
+
+%---------------------------------------------------------%
+%   Main Document                                          %
+%---------------------------------------------------------%
+\begin{document}
+    % [2.4.1] Front Cover
+    \umpCoverPage
+
+    % [3.2.1](1) Declaration of Thesis and Copyright
+    % \umpCopyright{0}{0}{1}  % {CONFIDENTIAL}{RESTRICTED}{OPEN ACCESS}
+
+    % [3.2.1](1) Thesis Declaration Letter, if required
+    % \umpLibLetter{RESTRICTED}{2}{Reason 1}{Reason 2}{Reason 3}
+
+    % [3.2.1](2) Supervisor's Declaration
+    % \umpSvDeclaration
+
+    % [3.2.1](3) Student's Declaration
+    % \umpStudDeclaration
+
+    % [3.2] Preliminaries
+    \frontmatter
+
+    % [3.2.2] Title Page
+    \maketitle
+
+    % [3.2.3] Dedication (Optional)
+    \input{tex/dedication}
+
+    % [3.2.4] Acknowledgements
+    \input{tex/acknowledgement}
+
+    % [3.2.5] ABSTRAK then ABSTRACT
+    \input{tex/abstrak}
+    \input{tex/abstract}
+
+    % [3.2.6] Table of Contents
+    \tableofcontents
+
+    % [3.2.7] List of Tables
+    \listoftables
+
+    % [3.2.8] List of Figures
+    \listoffigures
+
+    % [3.2.9] List of Symbols
+    \listofsymbols
+
+    % [3.2.9] List of Abbreviations
+    \listofabbreviations
+
+    % [3.3] Main Text - Markdown chapters
+    % Pelajar boleh tulis bab dalam Markdown (md/*.md).
+    % Jika nak guna LaTeX penuh, komen \markdownInput dan
+    % buka semula \input{tex/...} di bawah.
+    \mainmatter
+
+    \markdownInput{md/introduction.md}
+    \markdownInput{md/literature.md}
+    \markdownInput{md/methodologies.md}
+
+    % [3.3] Main Text - alternative: fully LaTeX chapters
+    % \input{tex/introduction}
+    % \input{tex/literature}
+    % \input{tex/methodologies}
+
+    % [3.5] References (APA author-year)
+    \bibliographystyle{plainnat}
+    \bibliography{bib/mybiblio}
+
+\end{document}

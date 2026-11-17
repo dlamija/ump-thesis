@@ -1,0 +1,397 @@
+%---------------------------------------------------------%
+%   CHAPTER 4: USING THE MAIN.TEX TEMPLATE                 %
+%---------------------------------------------------------%
+\chapter{Using the \texttt{main.tex} Template}
+\label{chap:latex}
+
+This chapter shows how to write and compile a PSM report with the \texttt{main.tex} template and the \texttt{umpthesis.cls} class \citep{umpthesiscls}. The template follows the structure of the previous UMP proposal template.
+
+\section{Prerequisites}
+
+You need a working TeX Live or MacTeX installation with \texttt{pdflatex} and \texttt{bibtex}. The class depends on standard packages (memoir, geometry, hyperref, setspace, graphicx, tabularx, caption, enumitem, tocloft, tikz, etc.), which are included in a normal TeX Live installation.
+
+\section{Project Layout}
+
+Keep the report in a single folder:
+
+\begin{verbatim}
+project/
+|-- main.tex                 % main file (this template)
+|-- umpthesis.cls            % the class file
+|-- logo-ump-color.png       % UMP logo for declarations
+|-- bib/
+|   `-- mybiblio.bib         % bibliography database
+|-- figure/
+|   `-- example.png          % figures
+`-- tex/
+    |-- abstrak.tex          % Malay abstract
+    |-- abstract.tex         % English abstract
+    |-- dedication.tex       % optional
+    |-- acknowledgement.tex
+    |-- introduction.tex     % Chapter 1
+    |-- literature.tex       % Chapter 2
+    |-- methodologies.tex    % Chapter 3
+    `-- abbrevia.tex         % list of abbreviations (optional)
+\end{verbatim}
+
+\section{Main File Skeleton}
+
+The \texttt{main.tex} file sets the class, margins, packages, and document profile:
+
+\begin{verbatim}
+\documentclass[english]{umpthesis}
+
+\geometry{top=25mm,right=25mm,left=35mm,bottom=25mm,includefoot}
+
+\usepackage{lipsum}     % dummy text (remove for real report)
+\usepackage{natbib}     % author-year citations
+\usepackage{booktabs}   % three-line tables
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\pagenumbering{roman}
+\end{verbatim}
+
+\section{Document Profile Commands}
+
+Set the author, school, and thesis information before \texttt{\string\begin\string{document\string}}:
+
+\begin{verbatim}
+\author{Your Full Name}
+\authorDOB{01/01/1990}
+\authorStudID{ABC12345}
+\authorNRICPassport{000000-00-0000}
+
+\umpFaculty{Faculty of Computer Systems \& Software Engineering}
+\umpSession{2026/2027}
+\umpDegree{Doctor of Philosophy}
+\umpField{Computer Science}
+
+\title{Your Research Title}
+\titleWrapOne{Your Research Title}
+\titleWrapTwo{}
+\titleWrapThree{}
+
+\svisorMain{Supervisor Name}
+\svisorMainPos{Senior Lecturer}
+% \svisorSecond{Co-Supervisor Name}
+% \svisorSecondPos{Senior Lecturer}
+
+\submitYear{2026}
+\submitMonth{November}
+\end{verbatim}
+
+\section{Front Matter Commands}
+
+The preliminaries are assembled in this order:
+
+\begin{verbatim}
+\begin{document}
+
+\umpCoverPage              % front cover
+
+\frontmatter               % roman page numbers start here
+\maketitle                 % title page
+
+% \umpCopyright{0}{0}{1}   % Declaration of Thesis and Copyright
+                            % {CONFIDENTIAL}{RESTRICTED}{OPEN ACCESS}
+% \umpLibLetter{RESTRICTED}{2}{Reason 1}{Reason 2}{Reason 3}
+% \umpSvDeclaration         % Supervisor's Declaration
+% \umpStudDeclaration       % Student's Declaration
+
+\input{tex/dedication}     % optional
+\input{tex/acknowledgement}
+\input{tex/abstrak}        % Malay ABSTRAK first
+\input{tex/abstract}       % then English ABSTRACT
+
+\tableofcontents
+\listoftables
+\listoffigures
+
+\mainmatter                % arabic page numbers start here
+\end{verbatim}
+
+For a real report, remove the comment marks from the declaration commands that apply. The copyright declaration takes three values, each \texttt{1} for selected and \texttt{0} for not selected.
+
+\section{Main Matter Commands}
+
+Write each chapter in its own file and \texttt{\string\input} it:
+
+\begin{verbatim}
+\mainmatter
+
+\input{tex/introduction}
+\input{tex/literature}
+\input{tex/methodologies}
+\end{verbatim}
+
+Inside a chapter file, use the class heading commands:
+
+\begin{verbatim}
+\chapter{Introduction}
+\section{Background}          % 1.1
+\subsection{History}          % 1.1.1
+\subsubsection{Detail}        % 1.1.1.1
+
+\begin{enumerate}[label=(\roman*)]  % (i), (ii), (iii)
+\item First objective
+\item Second objective
+\end{enumerate}
+\end{verbatim}
+
+Cross-reference with \texttt{\string\label} and \texttt{\string\ref}:
+
+\begin{verbatim}
+\section{Background}
+\label{sec:background}
+See Section \ref{sec:background}.
+\end{verbatim}
+
+\section{Tables, Figures, and Equations}
+
+\subsection{Table}
+
+Place the caption above the table and use \texttt{booktabs} for the required three-line style:
+
+\begin{verbatim}
+\begin{table}[htbp]
+\caption{Comparison of existing systems}
+\label{tab:comparison}
+\begin{tabularx}{\textwidth}{@{} l l l @{}}
+\toprule
+Feature & System A & System B \\
+\midrule
+Accuracy & High & Medium \\
+Speed & Fast & Slow \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\end{verbatim}
+
+\subsection{Figure}
+
+Place the caption below the figure:
+
+\begin{verbatim}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{figure/example.png}
+\caption{Research methodology}
+\label{fig:method}
+\end{figure}
+\end{verbatim}
+
+\subsection{Equation}
+
+Use \texttt{equation} for a numbered, centred equation:
+
+\begin{verbatim}
+\begin{equation}
+y = mx + c
+\end{equation}
+\end{verbatim}
+
+\section{References and Bibliography}
+
+Create \texttt{bib/mybiblio.bib} with BibTeX entries, then cite with \texttt{natbib}:
+
+\begin{verbatim}
+\citep{key}   % (Author, Year)
+\citet{key}   % Author (Year)
+\end{verbatim}
+
+At the end of the main file:
+
+\begin{verbatim}
+\bibliographystyle{plainnat}
+\bibliography{bib/mybiblio}
+\end{verbatim}
+
+\texttt{plainnat} is author--year and close to APA. For strict APA 6th, replace it with a dedicated APA style such as \texttt{biblatex-apa} (requires changing from BibTeX to Biber).
+
+\section{List of Symbols and List of Abbreviations}
+
+The class provides two front matter lists: \textbf{List of Symbols} and \textbf{List of Abbreviations}, following Section 3.2.9 of the thesis guide. The correct front matter order is: List of Tables, List of Figures, List of Symbols, then List of Abbreviations. Both lists are declared once in the front matter of \texttt{main.tex}:
+
+\begin{verbatim}
+\listoftables
+\listoffigures        % List of Figures
+\listofsymbols        % List of Symbols
+\listofabbreviations  % List of Abbreviations
+\mainmatter
+\end{verbatim}
+
+To add an entry, use \texttt{\string\addsymbol} or \texttt{\string\addabbreviation} anywhere in the text (typically at the point of first use). Each command takes two arguments: the symbol or abbreviation, and its description.
+
+\begin{verbatim}
+\addsymbol{$\alpha$}{Significance level used in the test}
+\addsymbol{$n$}{Number of samples in the experiment}
+
+\addabbreviation{PSM}{Projek Sarjana Muda (Final Year Project)}
+\addabbreviation{UMP}{Universiti Malaysia Pahang}
+\addabbreviation{HPC}{Hardware Performance Counter}
+\end{verbatim}
+
+The entries are collected into the \texttt{.sym} and \texttt{.abbr} auxiliary files and rendered in their lists with a header row (\textbf{Symbol/Abbreviation, Description, Page}) and the page number where the entry was declared. The lists appear in the Table of Contents automatically.
+
+Both lists are optional: if no \texttt{\string\addsymbol} or \texttt{\string\addabbreviation} command is used, comment out the corresponding \texttt{\string\listofsymbols} or \texttt{\string\listofabbreviations} line in \texttt{main.tex} to avoid empty list pages.
+
+\section{Compiling the Report}
+
+Run the following commands in the project folder:
+
+\begin{verbatim}
+pdflatex -interaction=nonstopmode -halt-on-error main.tex
+bibtex main
+pdflatex -interaction=nonstopmode -halt-on-error main.tex
+pdflatex -interaction=nonstopmode -halt-on-error main.tex
+\end{verbatim}
+
+The extra \texttt{pdflatex} passes resolve citations, the table of contents, and cross-references. Check the log for undefined citations or references before submitting:
+
+\begin{verbatim}
+grep -i undefined main.log
+\end{verbatim}
+
+\section{Writing Chapters in Markdown}
+\label{sec:markdown}
+
+The template supports writing chapters in \textbf{Markdown} instead of raw \LaTeX{}, which is easier for students who are already familiar with Markdown from notebooks, README files, and chat tools. Students who prefer writing pure \LaTeX{} can still do so; both workflows are supported.
+
+\subsection{Enabling Markdown}
+
+The main file loads the \texttt{markdown} package with the following options:
+
+\begin{verbatim}
+\usepackage[
+    smartEllipses,     % ... becomes \ldots
+    texMathDollars,    % $x$ and $$x$$ become math mode
+    texComments,       % % comments out rest of line
+    rawAttribute,      % ``` {=latex} raw LaTeX blocks
+    citations,         % [@key] citations
+    pipeTables         % | a | b | tables
+]{markdown}
+\end{verbatim}
+
+Chapters written in Markdown are kept in the \texttt{md/} folder and included with \texttt{\string\markdownInput}:
+
+\begin{verbatim}
+\mainmatter
+
+\markdownInput{md/introduction.md}
+\markdownInput{md/literature.md}
+\markdownInput{md/methodologies.md}
+\end{verbatim}
+
+\subsection{Markdown Syntax Mapping}
+
+Table \ref{tab:mdmapping} shows how Markdown constructs map to the thesis structure.
+
+\begin{table}[htbp]
+\caption{Markdown to \LaTeX{} mapping}
+\label{tab:mdmapping}
+\begin{tabularx}{\textwidth}{@{} l X @{}}
+\toprule
+Markdown & Produces \\
+\midrule
+\texttt{\# Chapter Title} & \texttt{\string\chapter\{Chapter Title\}} (Heading 1) \\
+\texttt{\#\# Section} & \texttt{\string\section\{Section\}} (Heading 2, numbered 2.1) \\
+\texttt{\#\#\# Subsection} & \texttt{\string\subsection\{Subsection\}} (Heading 3, numbered 2.1.1) \\
+\texttt{*item*} / \texttt{1. item} & itemized / enumerated lists \\
+\texttt{\$\ x\ \$} & inline math \\
+\texttt{\$\$ x \$\$} & displayed equation (unnumbered) \\
+\texttt{[citation](@key)} & \texttt{\string\citep\{key\}} style citation \\
+\texttt{| a | b |} & pipe table \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Mixing Raw \LaTeX{} inside Markdown}
+
+Any construct the Markdown syntax does not cover can be inserted as a \textbf{raw \LaTeX{} block} using the \texttt{rawAttribute} option. Wrap the \LaTeX{} code in a fenced code block tagged \texttt{\{=latex\}}:
+
+\begin{verbatim}
+## Learning Phase
+
+The learning process minimises the cross-entropy loss $L$:
+
+``` {=latex}
+\addsymbol{$L$}{Cross-entropy loss function}
+
+\begin{equation}
+L = -\frac{1}{n}\sum_{i=1}^{n} y_{i}\log\hat{y}_{i}
+\label{eq:example}
+\end{equation}
+```
+\end{verbatim}
+
+Use raw blocks for:
+
+\begin{itemize}
+    \item \texttt{\string\addsymbol} and \texttt{\string\addabbreviation} entries (List of Symbols / Abbreviations),
+    \item numbered equations with \texttt{\string\label},
+    \item \texttt{\string\ref} cross-references and \texttt{\string\label},
+    \item floats (\texttt{table}/\texttt{figure} environments) with captions, and
+    \item any class command not expressible in Markdown.
+\end{itemize}
+
+Inline math such as $n$, $A$, and $\alpha = 0.05$ works directly in the Markdown text via \texttt{texMathDollars}.
+
+\subsection{Roman Numbering for Objectives and Scope}
+
+The thesis guide (Table 3.5, Heading 7) requires lists such as \emph{objectives} and \emph{scope} to use roman numbering (i, ii, iii). Markdown ordered lists always produce arabic numbers (1, 2, 3), so these lists must be written as raw \LaTeX{} blocks using the \texttt{enumlist} environment provided by the class:
+
+\begin{verbatim}
+## Research Objective
+
+The objectives of this research are as follows:
+
+``` {=latex}
+\begin{enumlist}
+    \item To study the current state of the art.
+    \item To develop a proposed solution.
+    \item To evaluate the proposed solution.
+\end{enumlist}
+```
+\end{verbatim}
+
+The output is rendered as (i), (ii), (iii) with the correct indent, matching the pure \LaTeX{} workflow. Plain Markdown numbered lists (1., 2., 3.) remain suitable for other numbered content where arabic numbering is acceptable (Heading 8).
+
+\subsection{Compiling with Markdown}
+
+The \texttt{markdown} package runs an external Lua script, so compilation requires \textbf{shell escape}:
+
+\begin{verbatim}
+pdflatex -shell-escape -interaction=nonstopmode main.tex
+bibtex main
+pdflatex -shell-escape -interaction=nonstopmode main.tex
+pdflatex -shell-escape -interaction=nonstopmode main.tex
+\end{verbatim}
+
+\subsection{Choosing Between Markdown and Pure \LaTeX{}}
+
+\begin{itemize}
+    \item \textbf{Markdown} (files in \texttt{md/}, included with \texttt{\string\markdownInput}): simpler syntax for text, lists, and tables; raw \LaTeX{} blocks available for anything else; requires \texttt{-shell-escape}.
+    \item \textbf{Pure \LaTeX{}} (files in \texttt{tex/}, included with \texttt{\string\input}): full control, no shell escape needed; the same dummy files are provided in \texttt{tex/} for reference.
+\end{itemize}
+
+To switch the main file from Markdown to pure \LaTeX{}, comment out the \texttt{\string\markdownInput} lines and uncomment the \texttt{\string\input} lines:
+
+\begin{verbatim}
+% Markdown workflow
+% \markdownInput{md/introduction.md}
+
+% Pure LaTeX workflow
+\input{tex/introduction}
+\end{verbatim}
+
+Both workflows produce the same formatting: the chapter heading style, numbering, List of Symbols/Abbreviations, TOC entries, and citations are handled by the class identically.
+
+\subsection{Cleaning Generated Files}
+
+After the final compile, remove the auxiliary files and keep the sources and PDF:
+
+\begin{verbatim}
+rm -f *.aux *.bbl *.blg *.log *.out *.toc *.lof *.lot
+rm -f main.markdown.*
+\end{verbatim}
