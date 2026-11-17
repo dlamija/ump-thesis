@@ -1,0 +1,69 @@
+% --------------------------------------------------------------
+% Gantt dua semester (PSM1 + PSM2) — kalendar:
+%   PSM1 (S1): W01 mulai Isnin 28 Sep 2026, hingga W17 (31 Jan 2027);
+%              cuti pertengahan 16-22 Nov tidak bernombor (selepas W07)
+%   PSM2 (S2): Isnin 22 Feb 2027 hingga Jumaat 4 Jun 2027 (15 minggu);
+%              cuti pertengahan 19 Apr 2027 tidak bernombor (selepas W09)
+%
+% Tarikh tugasan KALAM (disahkan dari course 15/16/1193/557, 18 Nov 2026):
+%   PSM1: EV1 (Bab 1-2)        — 15 Nov 2026  (dah lepas)
+%         Proposal Examiner    — 1 Jan 2027 (Jumaat, W13)
+%         EV3 + Turnitin       — 31 Jan 2027 (Ahad, W17)
+%   PSM2: EV1 (20%, supervisor)— 15 Nov 2026* (turun dari S1; kalendar KALAM
+%                                   course 16 masih guna tarikh S1, akan
+%                                   dikemas kini oleh penyelaras)
+%         Thesis Examiner      — 1 Jan 2027*
+%         EV3 corrected thesis — 31 Jan 2027*
+%   (* = tarikh tempoh semester 1; sepadan dengan kalendar PSM2 course 16
+%    yang belum dikemas kini untuk tahun 2027 — sahkan semula bila penyelaras
+%    update KALAM)
+%
+% Bar/milestone: pelajar ubah label & minggu ikut projek masing-masing.
+% Minggu disenaraikan berurutan (tanpa jeda antara semester) supaya chart padat.
+% Saiz: chart dibalut \resizebox supaya PASTI muat \textwidth (portrait A4).
+% Guna dalam md/*.md:  \input{gantt-psm}  di dalam blok {=latex}
+% --------------------------------------------------------------
+\resizebox{\textwidth}{!}{%
+\begin{ganttchart}[
+    hgrid, vgrid={*{6}{draw=none}, dotted},
+    x unit=4.25mm, y unit title=5.5mm, y unit chart=4.6mm,
+    title/.append style={draw=none, fill=blue!8},
+    title label font=\scriptsize\bfseries,
+    title label node/.append style={below=-1.3ex},
+    bar/.append style={fill=blue!45},
+    bar height=.45,
+    bar label font=\scriptsize,
+    group/.append style={fill=blue!45, draw=blue!60!black},
+    group height=.35,
+    group peaks width={.2},
+    milestone/.append style={fill=red!65},
+    milestone label font=\scriptsize,
+    milestone label node/.append style={above=-3.6ex, anchor=south west, xshift=-0.5ex, yshift=0.4ex},
+        link/.style={->, thick}
+]{1}{38}
+% ---- Kepala: PSM1 (19 kolom) + PSM2 (17 kolom) = 36 ----
+\gantttitle{PSM 1: 28 Sep 2026 -- 31 Jan 2027}{19}\gantttitle{PSM 2: 22 Feb -- 4 Jun 2027}{17}\gantttitle{}{2}\\
+\gantttitle{W}{7}\gantttitle{C}{1}\gantttitle{W}{10}\gantttitle{J}{1}
+  \gantttitle{W}{9}\gantttitle{C}{1}\gantttitle{W}{6}\\
+\gantttitlelist{1,...,7}{1}
+\gantttitlelist{8,...,17}{1}
+\gantttitlelist{1,...,9}{1}
+\gantttitlelist{10,...,15}{1}\gantttitle{}{2}\\
+% ---- PSM 1 ----
+\ganttgroup{PSM 1}{1}{19}\\
+\ganttbar{Bab 1 \& 2 (EV1, KALAM)}{4}{8}\\
+\ganttmilestone{EV1 15 Nov}{8}\\
+\ganttbar{Bab 3 + Proof of Concept}{9}{17}\\
+\ganttmilestone{EV3 31 Jan}{17}\\
+\ganttmilestone{Examiner 1 Jan}{26}\\
+% ---- PSM 2 ----
+\ganttgroup{PSM 2}{20}{36}\\
+\ganttbar{Implementasi aplikasi}{20}{26}\\
+\ganttbar{Pengumpulan data / ujian lapangan}{24}{30}\\
+\ganttbar{Penilaian + Bab 4--5}{28}{34}\\
+\ganttmilestone{EV1 PSM2 20\%}{20}\\
+\ganttmilestone{Thesis Examiner 40\%}{26}\\
+\ganttmilestone{EV3 40\%}{36}\\
+\ganttbar{}{36}{38}
+\end{ganttchart}%
+}

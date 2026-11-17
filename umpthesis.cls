@@ -943,6 +943,50 @@
 
 
 %---------------------------------------------------------%
+%   Appendices [Start]
+%---------------------------------------------------------%
+% Counter: APPENDIX A, B, C...
+\newcounter{umpappendix}
+\setcounter{umpappendix}{0}
+
+% List of Appendices file
+\newlistof{appendices}{app}{\listnameofappendices}
+\newcommand{\listnameofappendices}{LIST OF APPENDICES}
+
+\newcommand{\umpAppendix}[1]{%
+    \refstepcounter{umpappendix}%
+    \clearpage
+    \phantomsection
+    \addcontentsline{app}{appendix}{\protect\mbox{APPENDIX \Alph{umpappendix}}\quad #1}%
+    \addcontentsline{toc}{chapter}{APPENDIX \Alph{umpappendix}\quad #1}%
+    \thispagestyle{plain}%
+    \begin{center}%
+        \bfseries\MakeUppercase{APPENDIX \Alph{umpappendix}}\\%
+        \vspace*{2\baselineskip}%
+        \bfseries\MakeUppercase{#1}%
+    \end{center}%
+    \vspace*{2\baselineskip}%
+}
+
+\newcommand{\listofappendices}{%
+    \label{pre:loapp}
+    \linespread{1.3}\selectfont 
+    \addcontentsline{toc}{chapter}{\MakeUppercase{\listnameofappendices}}
+    \begin{center}
+    \bfseries \MakeUppercase{\listnameofappendices}\vspace{-.5em}\vspace{0pt}
+        \vspace*{2\baselineskip}
+        \end{center}
+       \@mkboth{\MakeUppercase\listnameofappendices}{\MakeUppercase\listnameofappendices}%
+    \noindent\textbf{Appendix}~\hfill\textbf{Title}~\hfill\textbf{Page}\par
+    \@starttoc{app}
+    \clearpage
+}
+%---------------------------------------------------------%
+%   Appendices [End]
+%---------------------------------------------------------%
+
+
+%---------------------------------------------------------%
 %	Chapter [Start]
 %---------------------------------------------------------%
 %	Chapter Heading

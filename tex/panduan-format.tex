@@ -245,4 +245,13 @@ For strict APA 6th output, use a dedicated APA bibliography style or \texttt{bib
 
 Appendices hold material that is relevant but too lengthy for the text (raw data, questionnaires, program listings, maps, etc.). They are paginated consecutively with the main text. If there are more than five appendices, include a \emph{List of Appendices} in the Table of Contents. Publications resulting from the study during candidature should be listed clearly in a \emph{List of Publications}.
 
-\textbf{LaTeX note.} Use \texttt{\string\appendix} followed by \texttt{\string\chapter\string{...\string}}. The class provides \texttt{\string\listofsymbols} and \texttt{\string\listofabbreviations} with the \texttt{\string\addsymbol} and \texttt{\string\addabbreviation} entry commands (see Chapter \ref{chap:latex}). List of Appendices and List of Publications are not yet provided; define them manually or extend the class.
+\textbf{LaTeX note.} The class now provides appendix support. Use \texttt{\string\umpAppendix} to open a new appendix page, and \texttt{\string\listofappendices} for the front matter list:
+\begin{verbatim}
+\listofappendices           % in front matter
+...
+\umpAppendix{Gantt Chart}   % opens APPENDIX A page
+Content of the appendix ...
+\umpAppendix{Questionnaire} % opens APPENDIX B page
+...
+\end{verbatim}
+References to an appendix use \texttt{\string\ref}: \texttt{See Appendix \string\ref\{app:gantt\}}.

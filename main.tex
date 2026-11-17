@@ -21,6 +21,7 @@
 \usepackage{natbib}     % author-year citations
 \usepackage{booktabs}   % professional three-line tables
 \usepackage{caption}    % \captionof for tables in markdown
+\usepackage{pgfgantt}   % Gantt charts (for appendix)
 
 % Markdown package
 \usepackage[
@@ -150,7 +151,7 @@
     % \input{tex/methodologies}
     % (List of abbreviations may also be filled in tex/abbrevia.tex)
 
-    % [3.5] References (APA author-year)
+% [3.5] References (APA author-year)
     \bibliographystyle{plainnat}
     \bibliography{bib/mybiblio}
 
@@ -163,5 +164,18 @@
         \vspace*{\fill}
     \end{center}
     \clearpage
+
+    % List of Appendices
+    \listofappendices
+
+    % Appendix A
+    \umpAppendix{Project Gantt Chart}
+    The project schedule for PSM 1 and PSM 2 is shown below.
+    \begin{figure}[htbp]
+        \centering
+        \input{gantt-psm}
+        \caption{PSM 1 and PSM 2 project schedule}
+        \label{fig:gantt}
+    \end{figure}
 
 \end{document}
