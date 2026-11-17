@@ -68,7 +68,7 @@
 % [2.2.1] Typeface or Font - Times New Roman 
 % There is no actual Times New Roman font in native LaTeX, 
 % the closest you'll get is by adding
-\RequirePackage{mathptmx}				% TNR Typeface
+\RequirePackage{newtxtext,newtxmath}		% TNR Typeface (newtx: berfungsi dengan pdfLaTeX dan LuaLaTeX; mathptmx tak sertakan fon bold untuk LuaLaTeX (TU/ptm/b/n undefined))
 % Page layout
 % [2.5] Margins Specification
 % All pages should be set with the same margin.  
@@ -80,7 +80,14 @@
 	\let\MakeUppercase\relax
 } 
 %\let\appendix\relax
-\RequirePackage{amssymb}				% Math Symbol
+% Math symbols disediakan oleh newtxmath. Tema plain-TeX pakej markdown memuatkan
+% amssymb LEBIH LAMAT, bertindih dengan newtxmath ("\Bbbk already defined"), jadi
+% \Bbbk dinyah-takrif sebelum markdown dimuat (dua-dua takrifan AMS sama).
+% Konflik \Bbbk: amssymb (dimuat lewat oleh tema markdown) dan newtxmath kedua-dua takrifkan ia.
+% Takrifan newtxmath dibuang sejurus selepas kelas dimuat (let\let, bukan AtEndPreamble
+% yang masih terlalu awal). Dokumen tak guna \Bbbk, jadi hilang takrifan ini tak menjejaskan.
+% \Bbbk dinyah-takrif sejurus selepas kelas dimuat (ulasan di atas).
+\let\Bbbk\undefined
 \DisemulatePackage{setspace} 			% fix spacing command
 \RequirePackage{setspace}
 \RequirePackage{parskip}				% Paragraph setting
