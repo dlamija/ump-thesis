@@ -284,6 +284,38 @@ Chapters written in Markdown are kept in the \texttt{md/} folder and included wi
 \markdownInput{md/methodologies.md}
 \end{verbatim}
 
+\subsection{Front Matter in Markdown}
+
+The front matter sections---dedication, acknowledgements, abstrak, and abstract---can also be written in Markdown. The \textbf{marker stays in \texttt{main.tex}}, so the \texttt{.md} files contain \textbf{text only} (no \texttt{\string\begin} or \texttt{\string\end} commands). Wrap \texttt{\string\markdownInput} with the class environment directly in \texttt{main.tex}:
+
+\begin{verbatim}
+\begin{dedication}
+    \markdownInput{md/dedication.md}
+\end{dedication}
+
+\begin{acknowledge}
+    \markdownInput{md/acknowledgement.md}
+\end{acknowledge}
+
+\begin{abstrak}
+    \markdownInput{md/abstrak.md}
+\end{abstrak}
+
+\begin{abstract}
+    \markdownInput{md/abstract.md}
+\end{abstract}
+\end{verbatim}
+
+With this arrangement, each \texttt{.md} file is plain text, for example \texttt{md/abstract.md} contains only:
+
+\begin{verbatim}
+This is a placeholder for the English abstract. The abstract must
+be written in a single paragraph, on one page only, with single
+line spacing. ...
+\end{verbatim}
+
+The class environments handle the heading (ABSTRAK / ABSTRACT / DEDICATION / ACKNOWLEDGEMENTS), spacing, page break, and the Table of Contents entry exactly as they do in the pure \LaTeX{} workflow.
+
 \subsection{Markdown Syntax Mapping}
 
 Table \ref{tab:mdmapping} shows how Markdown constructs map to the thesis structure.

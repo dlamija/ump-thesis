@@ -1,0 +1,1 @@
+Ini ialah teks contoh untuk abstrak dalam Bahasa Melayu. Abstrak perlu ditulis dalam satu perenggan sahaja, dalam satu halaman, dengan jarak satu baris. Ia perlu memberikan gambaran menyeluruh tentang masalah kajian, objektif, metodologi, dapatan utama, dan kesimpulan secara ringkas. Sila gantikan teks ini dengan abstrak sebenar kajian anda.

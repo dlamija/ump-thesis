@@ -92,15 +92,24 @@
     % [3.2.2] Title Page
     \maketitle
 
-    % [3.2.3] Dedication (Optional)
-    \input{tex/dedication}
+    % [3.2.3] Dedication (Optional) - marker in main, text in md/
+    \begin{dedication}
+        \markdownInput{md/dedication.md}
+    \end{dedication}
 
-    % [3.2.4] Acknowledgements
-    \input{tex/acknowledgement}
+    % [3.2.4] Acknowledgements - marker in main, text in md/
+    \begin{acknowledge}
+        \markdownInput{md/acknowledgement.md}
+    \end{acknowledge}
 
-    % [3.2.5] ABSTRAK then ABSTRACT
-    \input{tex/abstrak}
-    \input{tex/abstract}
+    % [3.2.5] ABSTRAK then ABSTRACT - marker in main, text in md/
+    \begin{abstrak}
+        \markdownInput{md/abstrak.md}
+    \end{abstrak}
+
+    \begin{abstract}
+        \markdownInput{md/abstract.md}
+    \end{abstract}
 
     % [3.2.6] Table of Contents
     \tableofcontents
