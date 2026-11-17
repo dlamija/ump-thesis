@@ -362,8 +362,8 @@
 			\renewcommand{\arraystretch}{0.5}%
 			\noindent\begin{tabular}{lll}
 					& 1. & The Thesis is the Property of Universiti Malaysia Pahang Al-Sultan Abdullah                                                                 \\[1ex]
-					& 2. & The Library of Universiti Malaysia Pahang Al-Sultan Abdullah has the right to make copies \\ [1ex]
-					& & for the purpose of research only. \\[1ex]
+					& 2. & The Library of Universiti Malaysia Pahang Al-Sultan Abdullah has the right to \\ [1ex]
+					& & make copies for the purpose of research only. \\[1ex]
 					& 3. & The Library has the right to make copies of the thesis for academic exchange.\\[1ex]                                           
 			\end{tabular}\\
 		\endgroup\\
