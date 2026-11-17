@@ -269,7 +269,8 @@ The main file loads the \texttt{markdown} package with the following options:
     texComments,       % % comments out rest of line
     rawAttribute,      % ``` {=latex} raw LaTeX blocks
     citations,         % [@key] citations
-    pipeTables         % | a | b | tables
+    pipeTables,        % | a | b | tables
+    fancyLists         % i) and ii) roman numbered lists
 ]{markdown}
 \end{verbatim}
 
@@ -339,23 +340,21 @@ Inline math such as $n$, $A$, and $\alpha = 0.05$ works directly in the Markdown
 
 \subsection{Roman Numbering for Objectives and Scope}
 
-The thesis guide (Table 3.5, Heading 7) requires lists such as \emph{objectives} and \emph{scope} to use roman numbering (i, ii, iii). Markdown ordered lists always produce arabic numbers (1, 2, 3), so these lists must be written as raw \LaTeX{} blocks using the \texttt{enumlist} environment provided by the class:
+The thesis guide (Table 3.5, Heading 7) requires lists such as \emph{objectives} and \emph{scope} to use roman numbering (i, ii, iii). With the \texttt{fancyLists} option enabled in \texttt{main.tex}, this is done in \textbf{pure Markdown} by starting each item with a roman numeral marker---no raw \LaTeX{} block is needed:
 
 \begin{verbatim}
 ## Research Objective
 
 The objectives of this research are as follows:
 
-``` {=latex}
-\begin{enumlist}
-    \item To study the current state of the art.
-    \item To develop a proposed solution.
-    \item To evaluate the proposed solution.
-\end{enumlist}
-```
+i) To study the current state of the art.
+ii) To develop a proposed solution.
+iii) To evaluate the proposed solution.
 \end{verbatim}
 
-The output is rendered as (i), (ii), (iii) with the correct indent, matching the pure \LaTeX{} workflow. Plain Markdown numbered lists (1., 2., 3.) remain suitable for other numbered content where arabic numbering is acceptable (Heading 8).
+The output is rendered as i), ii), iii). Both the \texttt{i)} and \texttt{i.} marker styles are recognised, and roman numerals may be lowercase (\texttt{i)}, \texttt{ii)}) or uppercase (\texttt{I)}, \texttt{II)}). Ordinary numbered lists (\texttt{1.}, \texttt{2.}, \texttt{3.}) continue to produce arabic numbering, so they remain suitable for other numbered content (Heading 8).
+
+The class-provided \texttt{enumlist} raw block remains available as an alternative if a student prefers explicit \LaTeX{} control, but \texttt{fancyLists} is the recommended, simpler way.
 
 \subsection{Compiling with Markdown}
 

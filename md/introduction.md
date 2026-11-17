@@ -39,25 +39,17 @@ Modern processors expose Hardware Performance Counters (HPC) that can be read ch
 
 The objectives of this research are as follows:
 
-``` {=latex}
-\begin{enumlist}
-    \item To study the current state of the art.
-    \item To develop a proposed solution.
-    \item To evaluate the proposed solution.
-\end{enumlist}
-```
+i) To study the current state of the art.
+ii) To develop a proposed solution.
+iii) To evaluate the proposed solution.
 
 ## Research Scope
 
 The scope of this research is limited to the following items:
 
-``` {=latex}
-\begin{enumlist}
-    \item The study focuses on the selected domain only.
-    \item The evaluation is performed in a controlled environment.
-    \item The results are measured in terms of speed, performance, and accuracy.
-\end{enumlist}
-```
+i) The study focuses on the selected domain only.
+ii) The evaluation is performed in a controlled environment.
+iii) The results are measured in terms of speed, performance, and accuracy.
 
 ## Organization of the Proposal
 
