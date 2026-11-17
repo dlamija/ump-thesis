@@ -48,7 +48,7 @@
 %--------------------------------------------------%
 \NeedsTeXFormat{LaTeX2e}
     \newcommand\@classname    {umpthesis}
-    \newcommand\@umpfullname  {Universiti Malaysia Pahang}
+    \newcommand\@umpfullname  {Universiti Malaysia Pahang Al-Sultan Abdullah}
     \newcommand\@classabout   {Class File for \@umpfullname Thesis Writing}
     \newcommand\@classdate    {2017/08/01}
     \newcommand\@classversion {v0.1}
@@ -354,8 +354,8 @@
 		\begingroup
 			\renewcommand{\arraystretch}{0.5}%
 			\noindent\begin{tabular}{lll}
-					& 1. & The Thesis is the Property of University Malaysia Pahang                                                                 \\[1ex]
-					& 2. & The Library of University Malaysia Pahang has the right to make copies \\ [1ex]
+					& 1. & The Thesis is the Property of Universiti Malaysia Pahang Al-Sultan Abdullah                                                                 \\[1ex]
+					& 2. & The Library of Universiti Malaysia Pahang Al-Sultan Abdullah has the right to make copies \\ [1ex]
 					& & for the purpose of research only. \\[1ex]
 					& 3. & The Library has the right to make copies of the thesis for academic exchange.\\[1ex]                                           
 			\end{tabular}\\
@@ -504,7 +504,7 @@
 	\thispagestyle{empty}
 	\cftaddtitleline{toc}{chapter}{\MakeUppercase{Declaration}}{}
 	\begin{center}
-		\includegraphics[width=4.14cm]{logo-ump-color}\\
+		\includegraphics[width=4.14cm]{logo-umpsa}\\
 		\vspace*{1.5\baselineskip}
 		\bfseries \MakeUppercase{Supervisor's Declaration} \vspace{-1.3em}
 		\vspace*{1.5\baselineskip}
@@ -573,7 +573,7 @@
 	\label{pre:declarationstd}
 	%\addcontentsline{toc}{chapter}{\MakeUppercase{Student's Declaration}}
 	\begin{center}
-		\includegraphics[width=4.14cm]{logo-ump-color}\\
+		\includegraphics[width=4.14cm]{logo-umpsa}\\
 		\vspace*{1.5\baselineskip}
  		\bfseries \MakeUppercase{Student's Declaration} \vspace{-1.3em}
 		\vspace*{1.5\baselineskip}
