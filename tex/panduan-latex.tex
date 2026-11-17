@@ -314,7 +314,15 @@ be written in a single paragraph, on one page only, with single
 line spacing. ...
 \end{verbatim}
 
-The class environments handle the heading (ABSTRAK / ABSTRACT / DEDICATION / ACKNOWLEDGEMENTS), spacing, page break, and the Table of Contents entry exactly as they do in the pure \LaTeX{} workflow.
+The class environments handle the heading (ABSTRAK / ABSTRACT / DEDICATION / ACKNOWLEDGEMENTS), spacing, page break, and the Table of Contents entry exactly as they do in the pure \LaTeX{} workflow. Each Markdown block in \texttt{main.tex} is followed by its commented-out \texttt{\string\input} equivalent, so students who prefer the pure \LaTeX{} workflow can see at a glance which lines to switch:
+
+\begin{verbatim}
+\begin{dedication}
+    \markdownInput{md/dedication.md}
+\end{dedication}
+% Alternative: fully LaTeX workflow
+% \input{tex/dedication}
+\end{verbatim}
 
 \subsection{Markdown Syntax Mapping}
 
