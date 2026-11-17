@@ -958,8 +958,7 @@
     \clearpage
     \phantomsection
     \addcontentsline{app}{appendix}{\protect\mbox{APPENDIX \Alph{umpappendix}}\quad #1}%
-    \addcontentsline{toc}{chapter}{APPENDIX \Alph{umpappendix}\quad #1}%
-    \thispagestyle{plain}%
+        \thispagestyle{plain}%
     \begin{center}%
         \bfseries\MakeUppercase{APPENDIX \Alph{umpappendix}}\\%
         \vspace*{2\baselineskip}%

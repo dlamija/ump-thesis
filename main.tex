@@ -135,6 +135,9 @@
     % [3.2.9] List of Abbreviations
     \listofabbreviations
 
+    % List of Appendices
+    \listofappendices
+    
     % [3.3] Main Text - Markdown chapters
     % Pelajar boleh tulis bab dalam Markdown (md/*.md).
     % Jika nak guna LaTeX penuh, komen \markdownInput dan
@@ -158,6 +161,8 @@
     % Appendices divider page
     \newpage
     \thispagestyle{plain}
+    \phantomsection
+    \addcontentsline{toc}{chapter}{\MakeUppercase{APPENDICES}}
     \begin{center}
         \vspace*{\fill}
         {\bfseries APPENDICES}
@@ -165,8 +170,7 @@
     \end{center}
     \clearpage
 
-    % List of Appendices
-    \listofappendices
+    
 
     % Appendix A
     \umpAppendix{Project Gantt Chart}
