@@ -955,6 +955,7 @@
 
 \newcommand{\umpAppendix}[1]{%
     \refstepcounter{umpappendix}%
+    \label{appendix:\Alph{umpappendix}}%
     \clearpage
     \phantomsection
     \addcontentsline{app}{appendix}{\protect\mbox{APPENDIX \Alph{umpappendix}}\quad #1}%
