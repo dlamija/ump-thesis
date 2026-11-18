@@ -948,6 +948,7 @@
 % Counter: APPENDIX A, B, C...
 \newcounter{umpappendix}
 \setcounter{umpappendix}{0}
+\renewcommand{\theumpappendix}{\Alph{umpappendix}}
 
 % List of Appendices file
 \newlistof{appendices}{app}{\listnameofappendices}
@@ -955,7 +956,8 @@
 
 \newcommand{\umpAppendix}[1]{%
     \refstepcounter{umpappendix}%
-    \label{appendix:\Alph{umpappendix}}%
+    \label{app:\Alph{umpappendix}}%
+
     \clearpage
     \phantomsection
     \addcontentsline{app}{appendix}{\protect\mbox{APPENDIX \Alph{umpappendix}}\quad #1}%

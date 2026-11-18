@@ -22,6 +22,7 @@
 \usepackage{booktabs}   % professional three-line tables
 \usepackage{caption}    % \captionof for tables in markdown
 \usepackage{pgfgantt}   % Gantt charts (for appendix)
+\usepackage{pdflscape}  % landscape pages (for appendix)
 
 % Markdown package
 \usepackage[
@@ -172,7 +173,8 @@
 
     
 
-    % Appendix A
+    % Appendix A - landscape page
+    \begin{landscape}
     \umpAppendix{Project Gantt Chart}
     The project schedule for PSM 1 and PSM 2 is shown below.
     \begin{figure}[htbp]
@@ -181,5 +183,6 @@
         \caption{PSM 1 and PSM 2 project schedule}
         \label{fig:gantt}
     \end{figure}
+    \end{landscape}
 
 \end{document}

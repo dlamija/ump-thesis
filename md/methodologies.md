@@ -81,8 +81,10 @@ activities follow one another, and the official assessment checkpoints can all b
 glance. It also acts as a progress tracker throughout the semester: any task that runs behind
 its planned slot is immediately noticeable, which makes early corrective action possible.
 
-**Appendix A** presents the planned schedule for this project. The first semester covers
-the study and documentation stages, namely Chapters 1 to 3 together with a Proof of
+``` {=latex}
+\textbf{Appendix \ref{app:A}} presents the planned schedule for this project.
+```
+The first semester covers the study and documentation stages, namely Chapters 1 to 3 together with a Proof of
 Concept, while the second semester is dedicated to the complete implementation of the ap-
 plication, field data collection, and evaluation. The milestones marked in red indicate the
 official deadlines enforced through KALAM: EV1 (15 November), the examiner proposal
