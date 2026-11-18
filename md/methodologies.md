@@ -72,6 +72,22 @@ Results are reported at a significance level of $\alpha = 0.05$.
 \addsymbol{$\alpha$}{Significance level used in the statistical test}
 ```
 
+## Project Timeline
+
+The Gantt chart serves as a planning and monitoring tool that maps out the entire
+project across its two academic semesters. Instead of listing deadlines as plain text, the
+chart breaks the work into visible phases, so the duration of each task, the order in which
+activities follow one another, and the official assessment checkpoints can all be read at a
+glance. It also acts as a progress tracker throughout the semester: any task that runs behind
+its planned slot is immediately noticeable, which makes early corrective action possible.
+
+Appendix A presents the planned schedule for this project. The first semester cov-
+ers the study and documentation stages, namely Chapters 1 to 3 together with a Proof of
+Concept, while the second semester is dedicated to the complete implementation of the ap-
+plication, field data collection, and evaluation. The milestones marked in red indicate the
+official deadlines enforced through KALAM: EV1 (15 November), the examiner proposal
+(1 January), and EV3 (31 January) for PSM 1, followed by the three PSM 2 assessments.
+
 ## Summary
 
 ``` {=latex}

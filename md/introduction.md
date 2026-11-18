@@ -29,8 +29,6 @@ Modern processors expose Hardware Performance Counters (HPC) that can be read ch
 \addabbreviation{HPC}{Hardware Performance Counter}
 ```
 
-The Gantt chart for the project schedule is provided in Appendix A.
-
 ## Problem Statement
 
 ``` {=latex}
