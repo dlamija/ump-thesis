@@ -197,8 +197,6 @@
 	\renewcommand*{\cftchapterformatpnum}[1]{}
 	\renewcommand{\cftchapterafterpnum}{}
   %\setlength{\cftbeforesectionskip}{60pt}
-  \setlength{\cftbeforechapterskip}{1em}
-  \setlength{\cftbeforesectionskip}{\cftbeforechapterskip}
 }
 %---------------------------------------------------------%
 %	Front Matter  [End]
@@ -805,7 +803,7 @@
 % [2017 Guide] Remove no Bold on Page Number on TOC
 
 % Chapter in TOC start in New Page if it is the last entry
-\renewcommand{\cftchapterbreak}{\addpenalty{-4000}}
+\renewcommand{\cftchapterbreak}{\addpenalty{-4000}\vskip\cftbeforechapterskip}
 
 %remove dotted line on All Level : Section, SubSection, SubSubSection
 \renewcommand\@dotsep{10000}
@@ -819,7 +817,7 @@
 % [2017 Guide] Up to Level 3
 \settocdepth{subsection}
 
-\renewcommand\tableofcontents{%
+\renewcommand\tableofcontents[1][b]{%
 %	\label{pre:toc}
 	\addcontentsline{toc}{chapter}{\MakeUppercase{\contentsname}}
 	\begin{center}
@@ -828,6 +826,20 @@
     \end{center}
     \@mkboth{\MakeUppercase\contentsname}{\MakeUppercase\contentsname}%
     \linespread{1.3}\selectfont 
+    \def\umptocopt{#1}%
+    \def\umptocopta{a}%
+    \typeout{TOC opt: #1}%
+    \ifx\umptocopt\umptocopta
+        \setlength{\cftbeforechapterskip}{3em}%
+        \setlength{\cftbeforesectionskip}{3em}%
+        \setlength{\cftbeforesubsectionskip}{3em}%
+        \setlength{\cftbeforesubsubsectionskip}{3em}%
+    \else
+        \setlength{\cftbeforechapterskip}{0.2em}%
+        \setlength{\cftbeforesectionskip}{0.2em}%
+        \setlength{\cftbeforesubsectionskip}{0.2em}%
+        \setlength{\cftbeforesubsubsectionskip}{0.2em}%
+    \fi
     \@starttoc{toc}%
     \clearpage
 }

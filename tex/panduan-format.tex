@@ -225,6 +225,17 @@ E = mc^{2}
 \end{equation}
 \end{verbatim}
 
+\section{Table of Contents}
+
+The Table of Contents starts on a new page with the heading TABLE OF CONTENTS centred, 25 mm from the top. It lists all chapters, sections, subsections, references, and appendices with their page numbers. Titles must match the headings in the text exactly.
+
+\textbf{LaTeX note.} The class provides two TOC spacing options. Use \texttt{\string\tableofcontents\string[a\string]} for wide spacing (blank line between entries) or \texttt{\string\tableofcontents\string[b\string]} for tight spacing (no blank line). The default is \texttt{[b]}:
+\begin{verbatim}
+\tableofcontents[a]   % wide spacing
+% or
+\tableofcontents[b]   % tight spacing
+\end{verbatim}
+
 \section{Citations and References}
 
 In-text citations follow the APA 6th author--date style. Every source cited in the text must appear in the References list, and every entry in the list must be cited in the text. The References list starts on a new page with the heading \textsc{References} centred, 25 mm from the top. References are not listed at the end of each chapter; they are listed once at the end of the final chapter, in alphabetical and chronological order, with hanging indentation.
