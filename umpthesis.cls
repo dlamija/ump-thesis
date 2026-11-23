@@ -830,10 +830,10 @@
     \def\umptocopta{a}%
     \typeout{TOC opt: #1}%
     \ifx\umptocopt\umptocopta
-        \setlength{\cftbeforechapterskip}{3em}%
-        \setlength{\cftbeforesectionskip}{3em}%
-        \setlength{\cftbeforesubsectionskip}{3em}%
-        \setlength{\cftbeforesubsubsectionskip}{3em}%
+        \setlength{\cftbeforechapterskip}{0.85em}%
+        \setlength{\cftbeforesectionskip}{0.85em}%
+        \setlength{\cftbeforesubsectionskip}{0.6em}%
+        \setlength{\cftbeforesubsubsectionskip}{0.6em}%
     \else
         \setlength{\cftbeforechapterskip}{0.2em}%
         \setlength{\cftbeforesectionskip}{0.2em}%
@@ -850,11 +850,18 @@
 \renewcommand*{\l@chapter}[2]{%
 	\l@chapapp{\uppercase{#1}}{#2}{\cftchaptername}}
 %% Align Section same indent with Chapter #
-\renewcommand*\l@section{\@dottedtocline{1}{0em}{0.5in}} 
+%% Wrap \@dottedtocline so \cftbeforesectionskip is respected
+\renewcommand*\l@section[2]{%
+    \vskip\cftbeforesectionskip
+    \@dottedtocline{1}{0em}{0.5in}{#1}{#2}}
 %% Align SubSection same indent with Section Name
-\renewcommand*\l@subsection{\@dottedtocline{2}{0.5in}{0.5in}} 
-%% Align SubSection same indent with SubSection Name
-\renewcommand*\l@subsubsection{\@dottedtocline{3}{1.0in}{0.6in}} 
+\renewcommand*\l@subsection[2]{%
+    \vskip\cftbeforesubsectionskip
+    \@dottedtocline{2}{0.5in}{0.5in}{#1}{#2}}
+%% Align SubSubSection same indent with SubSection Name
+\renewcommand*\l@subsubsection[2]{%
+    \vskip\cftbeforesubsubsectionskip
+    \@dottedtocline{3}{1.0in}{0.6in}{#1}{#2}}
 %---------------------------------------------------------%
 %	Table of Content [End]
 %---------------------------------------------------------%
