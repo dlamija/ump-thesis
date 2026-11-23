@@ -817,7 +817,7 @@
 % [2017 Guide] Up to Level 3
 \settocdepth{subsection}
 
-\renewcommand\tableofcontents[1][b]{%
+\renewcommand\tableofcontents[1][a]{%
 %	\label{pre:toc}
 	\addcontentsline{toc}{chapter}{\MakeUppercase{\contentsname}}
 	\begin{center}
@@ -828,7 +828,6 @@
     \linespread{1.3}\selectfont 
     \def\umptocopt{#1}%
     \def\umptocopta{a}%
-    \typeout{TOC opt: #1}%
     \ifx\umptocopt\umptocopta
         \setlength{\cftbeforechapterskip}{0.85em}%
         \setlength{\cftbeforesectionskip}{0.85em}%
