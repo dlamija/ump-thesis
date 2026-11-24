@@ -95,3 +95,38 @@ official deadlines enforced through KALAM: EV1 (15 November), the examiner propo
 ``` {=latex}
 \lipsum[17]
 ```
+
+## Research Design
+
+The overall research design is summarised in Figure 3.1.
+
+``` {=latex}
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    node distance=1.2cm,
+    startstop/.style={rectangle, rounded corners, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=red!30},
+    process/.style={rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30},
+    decision/.style={diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30},
+    arrow/.style={thick,->,>=stealth}
+]
+\node (start) [startstop] {Start};
+\node (lit) [process, below of=start] {Literature Review};
+\node (problem) [decision, below of=lit] {Problem identified?};
+\node (design) [process, below of=problem, yshift=-0.5cm] {Design solution};
+\node (implement) [process, below of=design] {Implement};
+\node (evaluate) [process, below of=implement] {Evaluate};
+\node (end) [startstop, below of=evaluate] {End};
+
+\draw [arrow] (start) -- (lit);
+\draw [arrow] (lit) -- (problem);
+\draw [arrow] (problem) -- node[anchor=east] {Yes} (design);
+\draw [arrow] (problem.east) -- node[anchor=south] {No} ++(1.5,0) |- (lit);
+\draw [arrow] (design) -- (implement);
+\draw [arrow] (implement) -- (evaluate);
+\draw [arrow] (evaluate) -- (end);
+\end{tikzpicture}
+\caption{Research design flowchart}
+\label{fig:flowchart}
+\end{figure}
+```

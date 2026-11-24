@@ -182,6 +182,66 @@ Place the caption below the figure:
 \end{figure}
 \end{verbatim}
 
+\subsection{Flowcharts and Diagrams}
+
+The template supports flowcharts and diagrams in two ways.
+
+\textbf{Option 1: TikZ (native LaTeX).} Write TikZ code directly in a raw \LaTeX{} block within the Markdown chapter. TikZ produces vector-quality diagrams that match the thesis formatting:
+
+\begin{verbatim}
+``` {=latex}
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    node distance=1.2cm,
+    startstop/.style={rectangle, rounded corners, ...},
+    process/.style={rectangle, ...},
+    arrow/.style={thick,->,>=stealth}
+]
+\node (start) [startstop] {Start};
+\node (process) [process, below of=start] {Process};
+\draw [arrow] (start) -- (process);
+\end{tikzpicture}
+\caption{Research design flowchart}
+\label{fig:flowchart}
+\end{figure}
+```
+\end{verbatim}
+
+TikZ requires the \texttt{tikz} package, which is already loaded in \texttt{main.tex} along with the \texttt{arrows.meta} and \texttt{shapes.geometric} libraries.
+
+\textbf{Option 2: Mermaid (easier syntax).} Mermaid is a Markdown-friendly diagram syntax. The \texttt{markdown} package does \textbf{not} render Mermaid natively; it must be converted to an image first. The workflow is:
+
+\begin{enumerate}
+    \item Write the diagram in Mermaid syntax in a \texttt{.mmd} file:
+\begin{verbatim}
+graph TD
+    A[Start] --> B{Problem identified?}
+    B -->|Yes| C[Design solution]
+    B -->|No| A
+    C --> D[Implement]
+    D --> E[Evaluate]
+    E --> F[End]
+\end{verbatim}
+    \item Convert it to PNG using the Mermaid CLI (\texttt{mmdc}), which requires Node.js:
+\begin{verbatim}
+mmdc -i flowchart.mmd -o figure/flowchart.png
+\end{verbatim}
+    \item Include the PNG in the Markdown file as usual:
+\begin{verbatim}
+``` {=latex}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{figure/flowchart.png}
+\caption{Research design flowchart}
+\label{fig:flowchart}
+\end{figure}
+```
+\end{verbatim}
+\end{enumerate}
+
+Mermaid is easier for students already familiar with Markdown, but requires Node.js and the extra conversion step. TikZ is native LaTeX and produces higher-quality output, but has a steeper learning curve.
+
 \subsection{Equation}
 
 Use \texttt{equation} for a numbered, centred equation:
